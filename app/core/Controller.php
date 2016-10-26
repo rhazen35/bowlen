@@ -22,6 +22,9 @@ if( !class_exists( "Controller" ) ):
                 $view = "login/index";
             }
 
+            /** Check if the view has or requires a language translation */
+            $view = $this->translate_language( $view );
+
             require_once( Lib::path("app/views/common/header.phtml" ) );
             require_once( Lib::path("app/views/" . $view . ".phtml" ) );
             require_once( Lib::path("app/views/common/footer.phtml" ) );
@@ -56,6 +59,18 @@ if( !class_exists( "Controller" ) ):
         {
             header("Location: " . BASE_PATH . $location . "");
             exit();
+        }
+
+        protected function translate_language( $view )
+        {
+            switch( $view ):
+                case"reserveringen/index":
+                    return( "reservations/index" );
+                    break;
+                default:
+                    return( $view );
+                    break;
+            endswitch;
         }
 
     }

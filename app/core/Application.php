@@ -2,12 +2,16 @@
 
 namespace app\core;
 
-if( !class_exists( "app\\core\\Application" ) ):
+if( !class_exists( "Application" ) ):
 
     class Application
     {
+        /**
+         * Application constructor.
+         */
         public function __construct()
         {
+            /** Globalize capsule (Laravel) and set the route */
             define( "CAPSULE", serialize( $GLOBALS['capsule'] ) );
             ( new Router() )->set_route();
         }

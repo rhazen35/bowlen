@@ -18,7 +18,7 @@ if( !class_exists( "Configuration" ) ):
             return( $dbArray );
         }
 
-        public static function initSet()
+        public static function initialize()
         {
             error_reporting(E_ALL);
 

@@ -29,23 +29,44 @@
 </div>
 
 <div class="header">
-    <?php if( !empty( $_SESSION['login'] ) ): ?>
-    <div class="header-navigation dropdown">
-        <button onclick="menuDropDown()" class="dropbtn"></button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="<?= BASE_PATH ?>home/index">Home</a>
-            <?php if( $this->is_admin_or_super_user() ): ?>
-                <a href="<?= BASE_PATH ?>users/index">Users</a>
-            <?php endif; ?>
-            <a href="<?= BASE_PATH ?>contact/index">Contact</a>
+    <?php
+    /**
+     * Only show menu when logged in
+     */
+        if( !empty( $_SESSION['login'] ) ):
+    ?>
+        <div class="header-navigation dropdown">
+
+            <button onclick="menuDropDown()" class="dropbtn"></button>
+
+            <div id="myDropdown" class="dropdown-content">
+
+                <a href="<?= BASE_PATH ?>home/index">Home</a>
+
+                <?php
+                /**
+                 * Only show users option if user is admin or superuser
+                 */
+                    if( $this->is_admin_or_super_user() ):
+                ?>
+                    <a href="<?= BASE_PATH ?>users/index">Users</a>
+                <?php
+                    endif;
+                ?>
+
+                <a href="<?= BASE_PATH ?>reserveringen/index">Reserveringen</a>
+                <a href="<?= BASE_PATH ?>contact/index">Contact</a>
+
+            </div>
         </div>
-    </div>
     <?php endif; ?>
-    <div class="header-title">Wacka Wally Bowling Alley</div>
-    <?php if( !empty( $_SESSION['login'] ) ): ?>
-    <div class="header-logout">
-        <img class="logout-img" data-alt-src="<?= PUBLIC_PATH . 'img/icons/lock_icon_closed.png'?>" src="<?= PUBLIC_PATH ?>img/icons/lock_icon_open.png">
-        <a class="logout" href="<?= BASE_PATH ?>login/logout" title="Click to logout">Logout</a>
-    </div>
-    <?php endif; ?>
+
+        <div class="header-title">Wacka Wally Bowling Alley</div>
+
+        <?php if( !empty( $_SESSION['login'] ) ): ?>
+            <div class="header-logout">
+                <img class="logout-img" data-alt-src="<?= PUBLIC_PATH . 'img/icons/lock_icon_closed.png'?>" src="<?= PUBLIC_PATH ?>img/icons/lock_icon_open.png">
+                <a class="logout" href="<?= BASE_PATH ?>login/logout" title="Click to logout">Logout</a>
+            </div>
+        <?php endif; ?>
 </div>

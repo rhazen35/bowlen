@@ -17,5 +17,6 @@ define( 'APPLICATION_PATH', realpath( Lib::path(__DIR__) ) . DIRECTORY_SEPARATOR
 require_once( APPLICATION_PATH . Lib::path( 'app/core/autoloader.php' ) );
 require_once( APPLICATION_PATH . Lib::path( 'app/core/glossary.php' ) );
 
-( new Configuration() )->initSet();
+Configuration::initialize();
+
 ( new Application() );

@@ -9,7 +9,7 @@ $capsule->addConnection([
     'host'      => '127.0.0.1',
     'username'  => 'ruben35',
     'password'  => 'Ruben1986Hazenbosch35',
-    'database'  => 'blueberry',
+    'database'  => 'bowlen',
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => ''

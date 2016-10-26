@@ -26,10 +26,11 @@
 .users .table-cell
 {
   display:table-cell;
+  height: auto;
   width: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: 0.5rem;
   border: 1px solid $darker-grey;
+  overflow:hidden;
 }
 
 .users .table-cell-delete
@@ -43,7 +44,6 @@
 .users .table-cell select
 {
   width:100%;
-  padding:0.25rem;
   border:none;
 }
 
@@ -55,6 +55,10 @@
   margin: 0 auto;
   text-align:center;
   cursor:pointer;
+  background-image: url("../img/icons/bin_icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
 }
 
 .users-delete:hover
