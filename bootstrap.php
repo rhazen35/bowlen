@@ -10,6 +10,7 @@ require_once( 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php' );
 require_once( 'app' . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'database.php' );
 require_once( 'app' . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'Library.php' );
 require_once( 'app' . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'Controller.php' );
+require_once( 'app' . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'Router.php' );
 
 define( 'APPLICATION_PATH', realpath( Lib::path(__DIR__) ) . DIRECTORY_SEPARATOR );
 

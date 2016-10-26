@@ -17,7 +17,7 @@ if( !class_exists( "Controller" ) ):
 
         protected function view( $view, $data = [] )
         {
-            if( ! Login::is_logged_in() )
+            if( !Login::is_logged_in() )
             {
                 $view = "login/index";
             }
@@ -54,7 +54,7 @@ if( !class_exists( "Controller" ) ):
 
         public function redirect( $location = '' )
         {
-            header("Location: " . $location . "");
+            header("Location: " . BASE_PATH . $location . "");
             exit();
         }
 
