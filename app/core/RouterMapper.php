@@ -31,6 +31,17 @@ if( !class_exists( "RouterMapper" ) ):
                 array('url' => 'users/delete'       , 'controller' => 'users'           , 'action' => 'delete'),
                 array('url' => 'users/edit'         , 'controller' => 'users'           , 'action' => 'edit'),
 
+                /** Staff */
+                array('url' => 'personeel/index'    , 'controller' => 'staff'           , 'action' => 'index'),
+                array('url' => 'personeel/nieuw'    , 'controller' => 'staff'           , 'action' => 'add'),
+                array('url' => 'staff/add_staff'    , 'controller' => 'staff'           , 'action' => 'add_staff'),
+
+                /** Bowling lanes */
+                array('url' => 'banen/index'        , 'controller' => 'lanes'           , 'action' => 'index'),
+
+                /** Menu */
+                array('url' => 'menu/index'         , 'controller' => 'menu'            , 'action' => 'index'),
+
                 /** Reservations */
                 array('url' => 'reserveringen/index', 'controller' => 'reservations'    , 'action' => 'index'),
 

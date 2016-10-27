@@ -1,0 +1,43 @@
+form
+{
+  width:25rem;
+}
+
+form fieldset
+{
+  padding:2rem;
+  text-align:center;
+  border: 1px solid $swamp-green;
+}
+
+form fieldset legend
+{
+  font-size:90%;
+  padding-left:0.5rem;
+  padding-right:0.5rem;
+}
+
+form fieldset input[type="text"],
+form fieldset input[type="email"],
+form fieldset input[type="password"]
+{
+  width:90%;
+  margin-top:0.5rem;
+  padding:0.5rem;
+}
+
+form fieldset input[type="submit"]
+{
+  width:90%;
+  margin-top:1rem;
+  padding:1rem;
+  font-weight:bold;
+  background-color: $swamp-green;
+  border:1px solid transparent;
+  cursor:pointer;
+}
+
+form fieldset input[type="submit"]:hover
+{
+  background-color: $light-sky-blue;
+}

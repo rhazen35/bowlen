@@ -67,6 +67,15 @@ if( !class_exists( "Controller" ) ):
                 case"reserveringen/index":
                     return( "reservations/index" );
                     break;
+                case"personeel/index":
+                    return( "staff/index" );
+                    break;
+                case"personeel/nieuw":
+                    return( "staff/add" );
+                    break;
+                case"banen/index":
+                    return( "lanes/index" );
+                    break;
                 default:
                     return( $view );
                     break;

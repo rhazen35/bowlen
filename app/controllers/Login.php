@@ -19,7 +19,7 @@ if( !class_exists( "app\\controller\\Login" ) ):
 
         public function index()
         {
-            $this->view('/home/index', []);
+            $this->view('home/index', []);
         }
 
         public static function is_logged_in()
@@ -39,9 +39,9 @@ if( !class_exists( "app\\controller\\Login" ) ):
                         $_SESSION['login'] = $item->id;
                     endforeach;
                     $this->register_login();
-                    $this->redirect("/home/index");
+                    $this->redirect("home/index");
                 else:
-                    $this->redirect("/login/failed");
+                    $this->redirect("login/failed");
                 endif;
             else:
                 return( false );
@@ -86,7 +86,7 @@ if( !class_exists( "app\\controller\\Login" ) ):
         public function logout()
         {
             unset( $_SESSION['login'] );
-            $this->redirect("/home/index");
+            $this->redirect("home/index");
         }
 
     }
