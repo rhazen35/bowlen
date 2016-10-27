@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="container-title">Nieuwe baan toevoegen</div>
+</div>
+
+<div class="container-centered">
+
+    <form action="<?= BASE_PATH ?>lanes/add_lane" method="post">
+        <fieldset>
+            <legend>Vul onderstaande gegevens in</legend>
+            <p>
+
+            </p>
+            <input type="text" name="lane" value="" placeholder=" Baan nummer">
+            <br><br>
+            Beschikbaar?
+            Ja <input type="radio" name="available" value="yes">
+            Nee <input type="radio" name="available" value="no" >
+            <br><br>
+            Glow in the dark?
+            Ja <input type="radio" name="glow_in_dark" value="yes">
+            Nee <input type="radio" name="glow_in_dark" value="no">
+            <br><br>
+            <input type="submit" name="newStaffSubmit" value="toevoegen">
+        </fieldset>
+    </form>
+
+</div>

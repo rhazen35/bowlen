@@ -27,6 +27,15 @@
   font-size:110%;
 }
 
+.container p
+{
+  width:15rem;
+  margin-top:2rem;
+  padding:1rem;
+  text-align:center;
+  border: 1px solid $marine;
+}
+
 .container a
 {
   float:right;

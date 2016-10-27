@@ -40,6 +40,10 @@ if( !class_exists( "RouterMapper" ) ):
 
                 /** Bowling lanes */
                 array('url' => 'banen/index'        , 'controller' => 'lanes'           , 'action' => 'index'),
+                array('url' => 'banen/nieuw'        , 'controller' => 'lanes'           , 'action' => 'new_lane'),
+                array('url' => 'lanes/add_lane'     , 'controller' => 'lanes'           , 'action' => 'add'),
+                array('url' => 'lanes/edit'         , 'controller' => 'lanes'           , 'action' => 'edit'),
+                array('url' => 'lanes/delete'       , 'controller' => 'lanes'           , 'action' => 'delete'),
 
                 /** Menu */
                 array('url' => 'menu/index'         , 'controller' => 'menu'            , 'action' => 'index'),

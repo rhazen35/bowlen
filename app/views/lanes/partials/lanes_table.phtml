@@ -1,0 +1,31 @@
+<?php $lanes = $this->get_all_lanes(); ?>
+
+<div id="stage-table-wrapper">
+    <div class="users">
+        <span class="table-row">
+            <span class="table-header">Lane number</span>
+            <span class="table-header">Available</span>
+            <span class="table-header">Glow in the dark</span>
+            <span class="table-header">Updated at</span>
+            <span class="table-header">Delete</span>
+        </span>
+        <?php foreach( $lanes as $lane ): ?>
+            <form action="<?= BASE_PATH ?>lanes/edit" method="post" class="table-row">
+                <input type="hidden" name="lane_id" value="<?= $lane->id ?>">
+                <span class="table-cell"><input id="updateUser" type="text" name="lane" value="<?= $lane->lane ?>"></span>
+                <span class="table-cell-radio">
+                    Ja <input id="updateUser" type="radio" name="available" value="yes" <?= ( $lane->available === 'yes' ? 'checked="checked"' : "" ) ?>>
+                    Nee <input id="updateUser" type="radio" name="available" value="no" <?= ( $lane->available === 'no' ? 'checked="checked"' : "" ) ?>>
+                </span>
+                <span class="table-cell-radio">
+                    Ja <input id="updateUser" type="radio" name="glow_in_dark" value="yes" <?= ( $lane->glow_in_dark === 'yes' ? 'checked="checked"' : "" ) ?>>
+                    Nee <input id="updateUser" type="radio" name="glow_in_dark" value="no" <?= ( $lane->glow_in_dark === 'no' ? 'checked="checked"' : "" ) ?>>
+                </span>
+                <span class="table-cell"><?= $lane->created_at ?></span>
+                <span class="table-cell-delete">
+                    <a id="deleteUser" class="users-delete" data-url="<?= BASE_PATH ?>lanes/delete/<?= $lane->id ?>" title="Delete this lane"></a>
+                </span>
+            </form>
+        <?php endforeach; ?>
+    </div>
+</div>
