@@ -30,6 +30,21 @@ if( !class_exists( "Router" ) ):
         }
 
         /**
+         * Parse the url
+         * @param $url
+         * @return array|bool
+         */
+        private function parse_url( $url )
+        {
+            if( !empty( $url ) ):
+                $parsed_url = explode('/', filter_var( rtrim( $url, '/' ), FILTER_SANITIZE_URL ) );
+                return( $parsed_url );
+            endif;
+
+            return( false );
+        }
+
+        /**
          * Set the route, extracted from the url
          */
         public function set_route()
@@ -70,7 +85,7 @@ if( !class_exists( "Router" ) ):
 
             /** Capitalize first letter of controller and set controller namespace */
             $cp_controller = ucfirst( $this->controller );
-            $ns_controller = "\\app\\controllers\\".$cp_controller;
+            $ns_controller = "app\\controllers\\".$cp_controller;
 
             $this->controller = ( new $ns_controller );
 
@@ -89,19 +104,28 @@ if( !class_exists( "Router" ) ):
             call_user_func_array( [ $this->controller, $this->method ], $this->params );
         }
 
-        /**
-         * Parse the url
-         * @param $url
-         * @return array|bool
-         */
-        private function parse_url( $url )
+        public static function translate_route( $view )
         {
-            if( !empty( $url ) ):
-                $parsed_url = explode('/', filter_var( rtrim( $url, '/' ), FILTER_SANITIZE_URL ) );
-                return( $parsed_url );
-            endif;
-
-            return( false );
+            switch( $view ):
+                /**
+                 * Dutch routes to english routes
+                 */
+                case"reserveringen/index":
+                    return( "reservations/index" );
+                    break;
+                case"personeel/index":
+                    return( "staff/index" );
+                    break;
+                case"personeel/nieuw":
+                    return( "staff/add" );
+                    break;
+                case"banen/index":
+                    return( "lanes/index" );
+                    break;
+                default:
+                    return( $view );
+                    break;
+            endswitch;
         }
     }
 

@@ -1,10 +1,6 @@
-<?php
-
-$staff = $this->get_all_staff();
-var_dump($staff);
-?>
-
 <div class="container">
     <div class="container-title">Personeel</div>
     <a href="<?= BASE_PATH ?>personeel/nieuw">Personeel toevoegen</a>
 </div>
+
+<?php $this->view_partial( "staff", "staff_table" ); ?>

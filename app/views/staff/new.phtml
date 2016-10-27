@@ -3,15 +3,18 @@
 </div>
 
 
-<div class="login">
+<div class="container-centered">
 
     <form action="<?= BASE_PATH ?>staff/add_staff" method="post">
         <fieldset>
             <legend>Vul onderstaande gegevens in</legend>
+            <p>
+                Zodra een toegevoegd personeelslid inlogt wordt hij/zij verzocht om een wachtwoord op te geven.
+            </p>
             <input type="text" name="first_name" value="" placeholder=" Voornaam">
             <input type="text" name="insertion" value="" placeholder=" Tussenvoegsel">
             <input type="text" name="last_name" value="" placeholder=" Achternaam">
-            <input type="text" name="email" value="" placeholder=" Email">
+            <input type="email" name="email" value="" placeholder=" Email">
 
             <input type="submit" name="newStaffSubmit" value="toevoegen">
         </fieldset>

@@ -1,0 +1,27 @@
+<?php $staff = $this->get_all_staff(); ?>
+
+<div id="stage-table-wrapper">
+    <div class="users">
+        <span class="table-row">
+            <span class="table-header">Voornaam</span>
+            <span class="table-header">Tussenvoegsel</span>
+            <span class="table-header">Achternaam</span>
+            <span class="table-header">Email</span>
+            <span class="table-header">Updated at</span>
+            <span class="table-header">Delete</span>
+        </span>
+        <?php foreach( $staff as $staff_member ): ?>
+            <form action="<?= BASE_PATH ?>staff/edit" method="post" class="table-row">
+                <input type="hidden" name="staff_id" value="<?= $staff_member->id ?>">
+                <span class="table-cell"><input id="updateUser" type="text" name="first_name" value="<?= $staff_member->first_name ?>"></span>
+                <span class="table-cell"><input id="updateUser" type="text" name="insertion" value="<?= $staff_member->insertion ?>"></span>
+                <span class="table-cell"><input id="updateUser" type="text" name="last_name" value="<?= $staff_member->last_name ?>"></span>
+                <span class="table-cell"><input id="updateUser" type="email" name="email" value="<?= $staff_member->email ?>"></span>
+                <span class="table-cell"><?= $staff_member->created_at ?></span>
+                <span class="table-cell-delete">
+                    <a id="deleteUser" class="users-delete" data-url="<?= BASE_PATH ?>staff/delete/<?= $staff_member->id ?>" title="Delete this staff member"></a>
+                </span>
+            </form>
+        <?php endforeach; ?>
+    </div>
+</div>

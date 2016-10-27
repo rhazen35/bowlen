@@ -23,7 +23,7 @@ if( !class_exists( "Controller" ) ):
             }
 
             /** Check if the view has or requires a language translation */
-            $view = $this->translate_language( $view );
+            $view = Router::translate_route( $view );
 
             require_once( Lib::path("app/views/common/header.phtml" ) );
             require_once( Lib::path("app/views/" . $view . ".phtml" ) );
@@ -32,11 +32,13 @@ if( !class_exists( "Controller" ) ):
 
         protected function view_partial( $view, $partial )
         {
+            $view = Router::translate_route( $view );
             require_once( Lib::path("app/views/" . $view . "/partials/" . $partial . ".phtml" ) );
         }
 
         protected function view_messages( $view, $data = [] )
         {
+            $view = Router::translate_route( $view );
             require_once( Lib::path("app/views/messages/" . $view . ".phtml" ) );
         }
 
@@ -59,27 +61,6 @@ if( !class_exists( "Controller" ) ):
         {
             header("Location: " . BASE_PATH . $location . "");
             exit();
-        }
-
-        protected function translate_language( $view )
-        {
-            switch( $view ):
-                case"reserveringen/index":
-                    return( "reservations/index" );
-                    break;
-                case"personeel/index":
-                    return( "staff/index" );
-                    break;
-                case"personeel/nieuw":
-                    return( "staff/add" );
-                    break;
-                case"banen/index":
-                    return( "lanes/index" );
-                    break;
-                default:
-                    return( $view );
-                    break;
-            endswitch;
         }
 
     }
