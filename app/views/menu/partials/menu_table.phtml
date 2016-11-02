@@ -1,0 +1,32 @@
+<?php
+
+use app\core\Library as Lib;
+$menus = $this->get_all_menus();
+
+?>
+
+<div id="stage-table-wrapper">
+    <div class="users">
+        <span class="table-row">
+            <span class="table-header">Menu</span>
+            <span class="table-header">Gerecht</span>
+            <span class="table-header">Allergie info</span>
+            <span class="table-header">Prijs</span>
+            <span class="table-header">Updated at</span>
+            <span class="table-header">Delete</span>
+        </span>
+        <?php foreach( $menus as $menu ): ?>
+            <form action="<?= BASE_PATH ?>menu/edit" method="post" class="table-row">
+                <input type="hidden" name="menu_id" value="<?= $menu->id ?>">
+                <span class="table-cell"><input id="updateUser" type="text" name="menu" value="<?= $menu->menu ?>"></span>
+                <span class="table-cell"><input id="updateUser" type="text" name="dish" value="<?= $menu->dish ?>"></span>
+                <span class="table-cell"><input id="updateUser" type="text" name="allergic" value="<?= $menu->allergic ?>"></span>
+                <span class="table-cell"><input id="updateUser" type="text" name="price" value="&euro; <?= Lib::format_number( $menu->price, 2 ) ?>"></span>
+                <span class="table-cell"><?= $menu->created_at ?></span>
+                <span class="table-cell-delete">
+                    <a id="deleteUser" class="users-delete" data-url="<?= BASE_PATH ?>menu/delete/<?= $menu->id ?>" title="Delete this menu"></a>
+                </span>
+            </form>
+        <?php endforeach; ?>
+    </div>
+</div>

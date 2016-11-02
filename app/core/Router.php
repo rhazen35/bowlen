@@ -122,6 +122,9 @@ if( !class_exists( "Router" ) ):
                 case"banen/index":
                     return( "lanes/index" );
                     break;
+                case"menu/nieuw":
+                    return( "menu/new_menu" );
+                    break;
                 default:
                     return( $view );
                     break;

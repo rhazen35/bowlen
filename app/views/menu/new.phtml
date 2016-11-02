@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="container-title">Nieuwe baan toevoegen</div>
+</div>
+
+<div class="container-centered">
+
+    <form action="<?= BASE_PATH ?>menu/add" method="post">
+        <fieldset>
+            <legend>Vul onderstaande gegevens in</legend>
+            <input type="text" name="menu" value="" placeholder=" Menu nummer">
+            <br><br>
+            <input type="text" name="dish" value="" placeholder=" Gerecht">
+            <br><br>
+            <input type="text" name="allergic" value="" placeholder=" Allergien">
+            <br><br>
+            <input type="text" name="price" value="" placeholder=" Prijs 0.00">
+            <br><br>
+            <input type="submit" name="newMenuSubmit" value="toevoegen">
+        </fieldset>
+    </form>
+
+</div>

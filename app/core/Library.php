@@ -20,6 +20,23 @@ if( !class_exists( "Library" ) ):
         {
             return str_replace( $sDelimiter, $sReplacementDelimiter, $sPath );
         }
+
+        public static function get_current_user_id()
+        {
+            return( !empty( $_SESSION['login'] ) ? $_SESSION['login'] : "" );
+        }
+
+        public static function redirect( $location = '' )
+        {
+            header("Location: " . BASE_PATH . $location . "");
+            exit();
+        }
+
+        public static function format_number( $number, $decimals = 2 )
+        {
+            return( number_format( $number, $decimals ) );
+        }
+
         /**
          * @param $data
          * @return string

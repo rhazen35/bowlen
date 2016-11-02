@@ -1,4 +1,10 @@
 <div class="container">
     <div class="container-title">Menu</div>
     <a href="<?= BASE_PATH ?>menu/nieuw">Menu toevoegen</a>
+    <p>
+        Klik op een veld om te wijzigen
+    </p>
 </div>
+
+<?php $this->view_partial("menu", "menu_table"); ?>
+

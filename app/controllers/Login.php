@@ -31,14 +31,24 @@ if( !class_exists( "app\\controller\\Login" ) ):
         {
             $email    = ( !empty( $_POST['email'] ) ? trim( $_POST['email'] ) : "" );
             $password = ( !empty( $_POST['password'] ) ? trim( $_POST['password'] ) : "" );
+            $user     = false;
+            $staff    = false;
 
             if( !empty( $email ) && !empty( $password ) ):
                 $data = $this->login->read_where_email(['email' => $email]);
-                if( $this->verify( $data, $password ) ):
-                    foreach( $data as $item ):
-                        $_SESSION['login'] = $item->id;
-                    endforeach;
-                    $this->register_login();
+
+                if( empty( $data ) ):
+                    $data = $this->login->read_where_email_staff(['email' => $email]);
+                    $staff = true;
+                else:
+                    $user = true;
+                endif;
+
+                if( $this->verify( $data->hash, $password ) ):
+                    $_SESSION['login'] = $data->id;
+                    if( $user ):
+                        $this->register_login();
+                    endif;
                     $this->redirect("home/index");
                 else:
                     $this->redirect("login/failed");
@@ -53,14 +63,12 @@ if( !class_exists( "app\\controller\\Login" ) ):
         private function verify( $data, $password )
         {
             if( !empty( $data ) ):
-                foreach( $data as $item ):
-                    if( !empty( $item->hash ) ):
-                        $verify = !empty( $item->hash ) ? password_verify( $password, $item->hash ) : "";
-                        return( $verify );
-                    else:
-                        return( false );
-                    endif;
-                endforeach;
+                if( !empty( $data ) ):
+                    $verify = !empty( $data ) ? password_verify( $password, $data ) : "";
+                    return( $verify );
+                else:
+                    return( false );
+                endif;
             else:
                 return( false );
             endif;

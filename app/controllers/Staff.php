@@ -32,8 +32,10 @@ if( !class_exists( "Staff" ) ):
             $insertion  = ( isset( $_POST['insertion'] ) ? $_POST['insertion'] : "" );
             $last_name  = ( isset( $_POST['last_name'] ) ? $_POST['last_name'] : "" );
             $email      = ( isset( $_POST['email'] ) ? $_POST['email'] : "" );
+            $hash       = ( isset( $_POST['password'] ) ? $_POST['password'] : "" );
+            $hash       = password_hash( $hash, PASSWORD_BCRYPT );
 
-            $this->staff->add(['first_name' => $first_name, 'insertion' => $insertion, 'last_name' => $last_name, 'email' => $email]);
+            $this->staff->add(['first_name' => $first_name, 'insertion' => $insertion, 'last_name' => $last_name, 'email' => $email, 'hash' => $hash]);
             $this->redirect("personeel/index");
         }
 

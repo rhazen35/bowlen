@@ -6,7 +6,7 @@ if( !class_exists( "Staff" ) ):
 
     class Staff extends Eloquent
     {
-        protected $fillable = ['first_name', 'insertion', 'last_name', 'email', 'created_at', 'updated_at'];
+        protected $fillable = ['first_name', 'insertion', 'last_name', 'email', 'hash', 'created_at', 'updated_at'];
 
         public function add( $data = [] )
         {
@@ -15,7 +15,8 @@ if( !class_exists( "Staff" ) ):
                 'first_name' => $data['first_name'],
                 'insertion'  => $data['insertion'],
                 'last_name'  => $data['last_name'],
-                'email'      => $data['email']
+                'email'      => $data['email'],
+                'hash'       => $data['hash']
             ]);
         }
 

@@ -1,0 +1,45 @@
+<?php
+    $lanes        = $this->lanes->get_all_lanes();
+    $menu_numbers   = $this->get_all_menu_numbers();
+    $menus        = $this->menus->get_all_menus();
+
+?>
+
+<div class="container">
+    <div class="container-title">Nieuwe reservering toevoegen</div>
+</div>
+
+
+<div class="container-centered">
+
+    <form action="<?= BASE_PATH ?>reservations/add" method="post">
+        <fieldset>
+            <legend>Vul onderstaande gegevens in</legend>
+
+            Kies een baan
+            <select name="lane">
+                <?php foreach( $lanes as $lane ): ?>
+                    <option value="<?= $lane->id ?>"><?= $lane->lane ?></option>
+                <?php endforeach; ?>
+            </select>
+            <br><br>
+            Kies een menu
+            <select name="menu">
+                <?php foreach( $menu_numbers as $menu_number ): ?>
+                    <option value="<?= $menu_number['id'] ?>"><?= $menu_number['menu'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <br><br>
+            <span>
+                Glow in the dark?
+            </span>
+            Ja <input type="radio" name="glow_in_dark" value="yes">
+            Nee <input type="radio" name="glow_in_dark" value="no">
+            <br><br>
+            Datum <input type="date" name="reservation" value="">
+
+            <input type="submit" name="newReservationSubmit" value="toevoegen">
+        </fieldset>
+    </form>
+
+</div>
