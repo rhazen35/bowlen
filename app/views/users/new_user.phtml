@@ -7,23 +7,24 @@ $random_pass = Lib::random_password();
 ?>
 
 <div class="container">
-    <div class="container-title">Add user</div>
+    <div class="container-icon"><img src="<?= PUBLIC_PATH ?>img/icons/new_user_icon.png"></div>
+    <div class="container-title">Nieuwe gebruiker toevoegen</div>
 </div>
 
 <div class="new-user">
     <form action="<?= BASE_PATH ?>users/add_user" method="post">
         <fieldset>
-            <legend>Enter an email and type</legend>
+            <legend>Vul onderstaande gegevens in</legend>
             <input type="email" name="email" value="" placeholder="Email">
             <select name="type">
-                <option value="">Choose a type</option>
+                <option value="">Kies een type</option>
                 <?php foreach( $user_types as $user_type ): ?>
                 <option value="<?= $user_type ?>"><?= $user_type ?></option>
                 <?php endforeach; ?>
             </select>
-            <div class="random">Temporary password: <?= $random_pass ?></div>
+            <div class="random">Tijdelijk wachtwoord: <?= $random_pass ?></div>
             <input type="hidden" name="password" value="<?= $random_pass ?>">
-            <input type="submit" name="newUserSubmit" value="Add">
+            <input type="submit" name="newUserSubmit" value="Toevoegen">
         </fieldset>
     </form>
 </div>

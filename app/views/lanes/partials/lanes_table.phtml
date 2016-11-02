@@ -10,7 +10,7 @@
             <span class="table-header">Delete</span>
         </span>
         <?php foreach( $lanes as $lane ): ?>
-            <form action="<?= BASE_PATH ?>lanes/edit" method="post" class="table-row">
+            <form action="<?= BASE_PATH ?>lanes/edit" method="post" class="table-row" id="updateUser">
                 <input type="hidden" name="lane_id" value="<?= $lane->id ?>">
                 <span class="table-cell"><input id="updateUser" type="text" name="lane" value="<?= $lane->lane ?>"></span>
                 <span class="table-cell-radio">

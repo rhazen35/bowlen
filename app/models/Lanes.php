@@ -21,7 +21,7 @@ if( !class_exists( "Lanes" ) ):
         public function get_all_lanes()
         {
             $capsule = unserialize( CAPSULE );
-            $data = $capsule->table('bowling_lanes')->get();
+            $data = $capsule->table('bowling_lanes')->orderby('lane')->get();
             return( $data );
         }
 

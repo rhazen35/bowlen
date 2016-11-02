@@ -1,5 +1,15 @@
+<?php
+
+use app\core\traits\Reservations;
+
+$menus         = $this->get_all_menus();
+$menus_numbers = Reservations::get_all_menus_numbers( $menus );
+
+?>
+
 <div class="container">
-    <div class="container-title">Nieuwe baan toevoegen</div>
+    <div class="container-icon"><img src="<?= PUBLIC_PATH ?>img/icons/add_menu_icon.png"></div>
+    <div class="container-title">Nieuw menu/gerecht toevoegen</div>
 </div>
 
 <div class="container-centered">
@@ -8,6 +18,13 @@
         <fieldset>
             <legend>Vul onderstaande gegevens in</legend>
             <input type="text" name="menu" value="" placeholder=" Menu nummer">
+            <br><br>
+            <select name="menu_select">
+                <option value="">Of selecteer een bestaand menu nummer</option>
+                <?php foreach( $menus_numbers as $menus_number => $data ): ?>
+                    <option value="<?= $data['menu'] ?>"><?= $data['menu'] ?></option>
+                <?php endforeach; ?>
+            </select>
             <br><br>
             <input type="text" name="dish" value="" placeholder=" Gerecht">
             <br><br>

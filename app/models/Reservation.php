@@ -36,6 +36,22 @@ if( !class_exists( "Reservation" ) ):
 
             Lib::redirect("reserveringen/index");
         }
+
+        public function edit( $data = [] )
+        {
+            $this->capsule->table('reservations')
+                          ->where('id', $data['reservation_id'])
+                          ->update([
+                              "lane_id"     => $data['lane'],
+                              "menu"        => $data['menu'],
+                              "reservation" => $data['reservation']
+                          ]);
+        }
+
+        public function delete( $data = [] )
+        {
+            $this->capsule->table('reservations')->where('id', $data)->delete();
+        }
     }
 
 endif;

@@ -19,9 +19,24 @@
   margin-bottom:1rem;
 }
 
+.container-icon
+{
+  float:left;
+  width: 75px;
+  height: 75px;
+}
+
+.container-icon img
+{
+  max-width:100%;
+  max-height:100%;
+}
+
 .container-title
 {
   float:left;
+  margin-top:1.5rem;
+  margin-left:1rem;
   color: $marine;
   font-weight:bold;
   font-size:110%;
@@ -29,11 +44,24 @@
 
 .container p
 {
-  width:15rem;
-  margin-top:2rem;
-  padding:1rem;
+  float:right;
+  width:16rem;
+  margin-top:0.5rem;
+  margin-right:2rem;
+  padding:0.5rem;
   text-align:center;
+  font-size:80%;
   border: 1px solid $marine;
+}
+
+.container span
+{
+  float:left;
+  width:85%;
+  margin: 0 auto;
+  margin-top:1rem;
+  text-align:center;
+  font-size:130%;
 }
 
 .container a
@@ -41,7 +69,6 @@
   float:right;
   display:block;
   width:auto;
-  margin-top:1rem;
   margin-bottom:1rem;
   padding:1rem;
   color: $black;

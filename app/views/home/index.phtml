@@ -1,3 +1,46 @@
+<?php
+
+$reservations        = $this->get_all_reservations();
+$total_reservations  = count( $reservations );
+$staff               = $this->get_all_staff();
+$total_staff         = count( $staff );
+$lanes               = $this->get_all_lanes();
+$total_lanes         = count( $lanes );
+$menus               = $this->get_all_menus();
+$total_menus         = count( $menus );
+
+
+?>
+
 <div class="container">
+    <div class="container-icon"><img src="<?= PUBLIC_PATH ?>img/icons/home_icon.png"></div>
     <div class="container-title">Home</div>
+    <span>
+        Welkom op het Just bowl it content management systeem.
+    </span>
 </div>
+
+<div class="home-summmary">
+    <div class="home-total-reservations">
+        <span><?= $total_reservations ?></span>
+        <br><br>
+        Reserveringen
+    </div>
+    <div class="home-total-reservations">
+        <span><?= $total_lanes ?></span>
+        <br><br>
+        Bowling banen
+    </div>
+    <div class="home-total-reservations">
+        <span><?= $total_menus ?></span>
+        <br><br>
+        Menu's
+    </div>
+    <div class="home-total-reservations">
+        <span><?= $total_staff ?></span>
+        <br><br>
+        Werknemers
+    </div>
+</div>
+
+<div class="home-hero"> sss</div>

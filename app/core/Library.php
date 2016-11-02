@@ -32,11 +32,6 @@ if( !class_exists( "Library" ) ):
             exit();
         }
 
-        public static function format_number( $number, $decimals = 2 )
-        {
-            return( number_format( $number, $decimals ) );
-        }
-
         /**
          * @param $data
          * @return string

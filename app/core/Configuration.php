@@ -21,6 +21,7 @@ if( !class_exists( "Configuration" ) ):
         public static function initialize()
         {
             error_reporting(E_ALL);
+            date_default_timezone_set('Europe/Amsterdam');
 
             ini_set('display_errors', 1);
             ini_set('xdebug.var_display_max_depth', -1);

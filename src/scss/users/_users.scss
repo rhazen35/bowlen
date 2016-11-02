@@ -2,7 +2,7 @@
 {
   display:table;
   margin: 0 auto;
-  margin-top:1rem;
+  margin-top:4rem;
   width:80%;
   font-size: 90%;
 }
@@ -31,6 +31,7 @@
   padding-left:0.5rem;
   background: $light-grey;
   border: 1px solid $darker-grey;
+  overflow:hidden;
 }
 
 .users .table-cell-radio
@@ -40,7 +41,6 @@
   text-align:center;
   background: $light-grey;
   border: 1px solid $darker-grey;
-  overflow:hidden;
 }
 
 .users .table-cell-delete
@@ -53,16 +53,22 @@
 .users .table-cell input,
 .users .table-cell select
 {
-  width:100%;
+  width:92%;
   padding: 0.5rem;
   border:none;
   background: $light-grey;
 }
 
+.users .table-cell input:hover,
+.users .table-cell select:hover
+{
+  background-color: $light-sky-blue;
+}
+
 .users .table-cell input:focus,
 .users .table-cell select:focus
 {
-  background-color: $swamp-green;
+  background-color: $light-sky-blue;
 }
 
 .users-delete

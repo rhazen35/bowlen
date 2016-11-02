@@ -12,6 +12,7 @@ $menus = $this->get_all_menus();
             <span class="table-header">Gerecht</span>
             <span class="table-header">Allergie info</span>
             <span class="table-header">Prijs</span>
+            <span class="table-header"></span>
             <span class="table-header">Updated at</span>
             <span class="table-header">Delete</span>
         </span>
@@ -21,7 +22,8 @@ $menus = $this->get_all_menus();
                 <span class="table-cell"><input id="updateUser" type="text" name="menu" value="<?= $menu->menu ?>"></span>
                 <span class="table-cell"><input id="updateUser" type="text" name="dish" value="<?= $menu->dish ?>"></span>
                 <span class="table-cell"><input id="updateUser" type="text" name="allergic" value="<?= $menu->allergic ?>"></span>
-                <span class="table-cell"><input id="updateUser" type="text" name="price" value="&euro; <?= Lib::format_number( $menu->price, 2 ) ?>"></span>
+                <span class="table-cell">EUR</span>
+                <span class="table-cell"><input id="updateUser" type="text" name="price" value="<?= number_format( $menu->price, 2 ) ?>"></span>
                 <span class="table-cell"><?= $menu->created_at ?></span>
                 <span class="table-cell-delete">
                     <a id="deleteUser" class="users-delete" data-url="<?= BASE_PATH ?>menu/delete/<?= $menu->id ?>" title="Delete this menu"></a>

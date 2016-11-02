@@ -1,5 +1,7 @@
 /* Dropdown Button */
 .dropbtn {
+  z-index: 12;
+  position: relative;
   background-image: url('../../../bowlen/public/img/icons/menu_icon.png');
   background-position: center center;
   background-repeat: no-repeat;

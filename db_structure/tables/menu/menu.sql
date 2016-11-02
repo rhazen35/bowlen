@@ -1,5 +1,6 @@
 CREATE TABLE `menu`(
   `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `menu` INT(11) NOT NULL,
   `dish` VARCHAR(150) NOT NULL,
   `allergic` VARCHAR(150) NOT NULL,
   `price` DECIMAL(19,4) NOT NULL,

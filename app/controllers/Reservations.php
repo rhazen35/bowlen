@@ -29,25 +29,6 @@ if( !class_exists( "Reservations" ) ):
             $this->view('reservations/new', []);
         }
 
-        public function get_all_menu_numbers()
-        {
-            $menu_numbers  = [];
-            $taken_numbers = [];
-            $menu_data = $this->menus->get_all_menus();
-
-            $i = 0;
-            foreach( $menu_data as $menu_item ):
-                if( !in_array( $menu_item->menu, $taken_numbers ) ):
-                    $menu_numbers[$i]['id']   = $menu_item->id;
-                    $menu_numbers[$i]['menu'] = $menu_item->menu;
-                    $taken_numbers[] = $menu_item->menu;
-                    $i++;
-                endif;
-            endforeach;
-
-            return( $menu_numbers );
-        }
-
         public function add()
         {
             $this->reservation->add( $_POST );
@@ -56,6 +37,17 @@ if( !class_exists( "Reservations" ) ):
         public function get_all_reservations()
         {
             return( $this->reservation->get_all_reservations() );
+        }
+
+        public function edit()
+        {
+            $this->reservation->edit( $_POST );
+            return( $this->view_partial('reservations', 'reservations_table') );
+        }
+
+        public function delete( $data = [] )
+        {
+            $this->reservation->delete( $data );
         }
     }
 
