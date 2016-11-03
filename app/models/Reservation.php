@@ -10,6 +10,7 @@ if( !class_exists( "Reservation" ) ):
         protected $fillable = ['staff_id', 'customer_id', 'menu', 'created_at', 'updated_at'];
         protected $capsule;
         protected $staffID;
+        public $timestamps = true;
 
         public function __construct()
         {
@@ -27,11 +28,13 @@ if( !class_exists( "Reservation" ) ):
         public function add( $data = [] )
         {
             $this->capsule->table('reservations')->insert([
-                "user"        => $this->staffID,
-                "customer"    => "",
-                "lane_id"     => $data['lane'],
-                "menu"        => $data['menu'],
-                "reservation" => $data['reservation']
+                "user"         => $this->staffID,
+                "customer"     => "",
+                "lane_id"      => $data['lane'],
+                "menu"         => $data['menu'],
+                "glow_in_dark" => $data['glow_in_dark'],
+                "reservation"  => $data['reservation'],
+                "time"         => $data['time']
             ]);
 
             Lib::redirect("reserveringen/index");
@@ -42,9 +45,11 @@ if( !class_exists( "Reservation" ) ):
             $this->capsule->table('reservations')
                           ->where('id', $data['reservation_id'])
                           ->update([
-                              "lane_id"     => $data['lane'],
-                              "menu"        => $data['menu'],
-                              "reservation" => $data['reservation']
+                              "lane_id"      => $data['lane'],
+                              "menu"         => $data['menu'],
+                              "glow_in_dark" => $data['glow_in_dark'],
+                              "reservation"  => $data['reservation'],
+                              "time"         => $data['time']
                           ]);
         }
 

@@ -24,22 +24,22 @@ $total_menus         = count( $menus );
     <div class="home-total-reservations">
         <span><?= $total_reservations ?></span>
         <br><br>
-        Reserveringen
+        <?= ( $total_reservations === 1 ? "Reservering" : "Reserveringen" ) ?>
     </div>
     <div class="home-total-reservations">
         <span><?= $total_lanes ?></span>
         <br><br>
-        Bowling banen
+        <?= ( $total_lanes === 1 ? "Bowling baan" : "Bowling banen" ) ?>
     </div>
     <div class="home-total-reservations">
         <span><?= $total_menus ?></span>
         <br><br>
-        Menu's
+        <?= ( $total_menus === 1 ? "Menu" : "Menu's" ) ?>
     </div>
     <div class="home-total-reservations">
         <span><?= $total_staff ?></span>
         <br><br>
-        Werknemers
+        <?= ( $total_staff === 1 ? "Werknemer" : "Werknemers" ) ?>
     </div>
 </div>
 
