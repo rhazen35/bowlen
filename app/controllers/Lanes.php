@@ -71,6 +71,7 @@ if( !class_exists( "Lanes" ) ):
 
             return( $this->view_partial( "lanes", "lanes_table" ) );
         }
+
     }
 
 endif;

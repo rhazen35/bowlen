@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\core\Controller;
+use app\core\traits\Reservations;
 
 if( !class_exists( "app\\controllers\\Home" ) ):
 
@@ -44,6 +45,11 @@ if( !class_exists( "app\\controllers\\Home" ) ):
         public function get_all_menus()
         {
             return( $this->menus->get_all_menus() );
+        }
+
+        public function get_all_menus_numbers( $menus )
+        {
+            return( Reservations::get_all_menus_numbers( $menus ) );
         }
 
     }
