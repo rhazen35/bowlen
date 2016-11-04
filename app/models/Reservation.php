@@ -25,16 +25,29 @@ if( !class_exists( "Reservation" ) ):
             return( $read );
         }
 
+        public function get_reservation_customer( $reservationID )
+        {
+            return( $this->capsule->table('customers')->where("reservation_id", $reservationID)->first() );
+        }
+
         public function add( $data = [] )
         {
-            $this->capsule->table('reservations')->insert([
+            $reservationID = $this->capsule->table('reservations')->insertGetId([
                 "user"         => $this->staffID,
                 "customer"     => "",
                 "lane_id"      => $data['lane'],
                 "menu"         => $data['menu'],
                 "glow_in_dark" => $data['glow_in_dark'],
                 "reservation"  => $data['reservation'],
+                "persons"      => $data['persons'],
                 "time"         => $data['time']
+            ]);
+
+            $this->capsule->table('customers')->insert([
+                "name" => $data['name'],
+                "email" => $data['email'],
+                "phone" => $data['phone'],
+                "reservation_id" => $reservationID
             ]);
 
             Lib::redirect("reserveringen/index");
@@ -49,6 +62,7 @@ if( !class_exists( "Reservation" ) ):
                               "menu"         => $data['menu'],
                               "glow_in_dark" => $data['glow_in_dark'],
                               "reservation"  => $data['reservation'],
+                              "persons"      => $data['persons'],
                               "time"         => $data['time']
                           ]);
         }
@@ -56,6 +70,7 @@ if( !class_exists( "Reservation" ) ):
         public function delete( $data = [] )
         {
             $this->capsule->table('reservations')->where('id', $data)->delete();
+            $this->capsule->table('customers')->where('reservation_id', $data)->delete();
         }
     }
 

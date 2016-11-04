@@ -31,4 +31,5 @@ trait Reservations
             endif;
         endforeach;
     }
+
 }

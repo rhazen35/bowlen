@@ -15,12 +15,15 @@ $menus_numbers = Reservations::get_all_menus_numbers( $menus );
             <span class="table-header">Baan</span>
             <span class="table-header">Menu</span>
             <span class="table-header">Glow in the dark</span>
+            <span class="table-header">Personen</span>
+            <span class="table-header">Klant</span>
             <span class="table-header">Datum</span>
             <span class="table-header">Time</span>
             <span class="table-header">Since</span>
             <span class="table-header">Delete</span>
         </span>
         <?php foreach( $reservations as $reservation ): ?>
+            <?php $customer = $this->get_reservation_customer( $reservation->id ); ?>
             <form action="<?= BASE_PATH ?>reservations/edit" method="post" class="table-row">
                 <input type="hidden" name="reservation_id" value="<?= $reservation->id ?>">
                 <span class="table-cell">
@@ -46,6 +49,18 @@ $menus_numbers = Reservations::get_all_menus_numbers( $menus );
                 <span class="table-cell-radio">
                     Ja <input type="radio" id="updateUser" name="glow_in_dark" value="yes" <?= $reservation->glow_in_dark === "yes" ? "checked=checked" : "" ?>>
                     Nee <input type="radio" id="updateUser" name="glow_in_dark" value="no" <?= $reservation->glow_in_dark === "no" ? "checked=checked" : "" ?>>
+                </span>
+                <span class="table-cell"><input type="text" id="updateUser" name="persons" value="<?= $reservation->persons ?>"></span>
+                <span class="table-cell">
+                    <?php
+                        if( !empty( $customer ) ):
+                            echo $customer->name;
+                            echo '<br>'.$customer->email;
+                            echo '<br>'.$customer->phone;
+                        else:
+                            echo 'Geen data beschikbaar';
+                        endif;
+                    ?>
                 </span>
                 <span class="table-cell"><input id="updateUser" type="date" name="reservation" value="<?= $reservation->reservation ?>"></span>
                 <span class="table-cell"><input id="updateUser" type="time" name="time" value="<?= $reservation->time ?>"></span>

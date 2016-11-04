@@ -29,6 +29,11 @@ if( !class_exists( "Reservations" ) ):
             $this->view('reservations/new', []);
         }
 
+        public function get_reservation_customer( $reservationID )
+        {
+            return( $this->reservation->get_reservation_customer( $reservationID ) );
+        }
+
         public function add()
         {
             $this->reservation->add( $_POST );
@@ -48,7 +53,9 @@ if( !class_exists( "Reservations" ) ):
         public function delete( $data = [] )
         {
             $this->reservation->delete( $data );
+            return( $this->view_partial('reservations', 'reservations_table') );
         }
+
     }
 
 endif;
