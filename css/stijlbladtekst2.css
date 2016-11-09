@@ -1,0 +1,82 @@
+@font-face {
+    font-family: defused;
+    src: url('defused.ttf');
+}
+
+body {
+    font-size: 16px;
+    font-family: defused;
+}
+
+#logo h1 {
+    text-align: center;
+    margin: 0px;
+    font-size: 60px;
+    color: black;
+    text-shadow: black 7px 7px 7px;
+}
+
+article h2 {
+    margin: 0px;
+    text-shadow: black 2px 2px 3px;
+}
+
+nav p,
+aside p {
+    margin-top: 7px;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+aside h2,
+nav h2 {
+    margin: 0px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid white;
+    font-variant: small-caps;
+    font-size: 16px;
+    text-shadow: black 0px 0px 0px;
+}
+
+footer {
+    font-family: "courier new";
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 3px 6px 3px 6px;
+    border-radius: 5px 5px 5px 5px;
+    line-height: 21px;
+}
+
+nav a:hover {
+    color: black;
+    background: #4ea64e;
+}
+
+#menubalk a {
+    color: black;
+    background: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 6px 3px 6px;
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid silver;
+    margin-right: 10px;
+}
+
+#menubalk a:hover {
+    color: white;
+    background: #3399ff;
+}
+
+p {
+    font-family: "Trebuchet MS";
+}

@@ -1,0 +1,121 @@
+body {
+    background: url('../img/indexrr.jpg');
+    background-size: cover;
+}
+
+header {
+    background: #3399ff;
+}
+
+#logo {
+    height: 100px;
+    background: url() no-repeat;
+    padding: 20px 0px 0px 5px;
+    border-bottom-right-radius: 0px;
+}
+
+.blauw {
+    color: #3399ff;
+}
+
+#menubalk {
+    height: 30px;
+    padding: 15px 5px 5px 10px;
+    border-bottom-right-radius: 20px;
+}
+
+.rechts {
+    float: right;
+}
+
+.clearright {
+    clear: right;
+}
+
+aside {
+    background: silver;
+    float: right;
+    width: 200px;
+    padding: 20px;
+}
+
+#nav {
+    float: left;
+    margin-top: 10px;
+}
+
+nav {
+    background: silver;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+section {
+    background: silver;
+    margin-left: 250px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+article {
+    background: white;
+    clear: right;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+footer {
+    background: dodgerblue;
+    clear: both;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.clearright {
+    clear: right;
+}
+
+#menubalk ul {
+    list-style-type: none;
+    display: inline;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+#menubalk li {
+    display: inline;
+    margin-left: 0px;
+}
+
+#wrapper {
+    margin: 0px auto 0px auto;
+    min-width: 780px;
+    max-width: 1000px;
+}
+
+.dikkerand {
+    border: 3px solid black;
+    border-radius: 30px 30px 30px 30px;
+}
+
+.rondehoeken {
+    border-radius: 20px 20px 20px 20px;
+}
+
+form.rechts {
+    margin-right: 10px;
+}
+
+.invoer {
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.midden {
+    text-align: center;
+}
+
+.omlijn {
+    border: 1px solid black;
+}
