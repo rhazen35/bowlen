@@ -46,14 +46,12 @@ if( !class_exists( "Lanes" ) ):
             $available    = ( !empty( $_POST['available'] ) ? $_POST['available'] : "" );
             $glow_in_dark = ( !empty( $_POST['glow_in_dark'] ) ? $_POST['glow_in_dark'] : "" );
 
-            if( Lib::noempty( $params = array( $lane_id, $lane, $available, $glow_in_dark ) ) ):
-                $this->lanes->edit([
-                    'lane_id'      => $lane_id,
-                    'lane'         => $lane,
-                    'available'    => $available,
-                    'glow_in_dark' => $glow_in_dark
-                ]);
-            endif;
+            $this->lanes->edit([
+                'lane_id'      => $lane_id,
+                'lane'         => $lane,
+                'available'    => $available,
+                'glow_in_dark' => $glow_in_dark
+            ]);
 
             return( $this->view_partial( "lanes", "lanes_table" ) );
         }

@@ -9,7 +9,6 @@ header {
 
 #logo {
     height: 100px;
-    background: url() no-repeat;
     padding: 20px 0px 0px 5px;
     border-bottom-right-radius: 0px;
 }
@@ -139,10 +138,7 @@ form fieldset legend
     padding-right:0.5rem;
 }
 
-form fieldset input
-{
-    display:block;
-}
+
 
 form fieldset input[type="text"],
 form fieldset input[type="email"],
@@ -153,6 +149,12 @@ form fieldset input[type="password"]
     padding:0.5rem;
 }
 
+form fieldset input[type="radio"]
+{
+    display: inline-block !important;
+    width: auto;
+}
+
 form fieldset input[type="submit"]
 {
     width:20rem;
@@ -160,6 +162,7 @@ form fieldset input[type="submit"]
     padding:1rem;
     font-weight:bold;
     background-color: darkgreen;
+    color: white;
     border:1px solid transparent;
     cursor:pointer;
 }
@@ -167,4 +170,14 @@ form fieldset input[type="submit"]
 form fieldset input[type="submit"]:hover
 {
     background-color: lightskyblue;
+}
+
+
+.reservationComplete
+{
+    position:absolute;
+    background-color: #4ea64e;
+    margin-top:1rem;
+    left:25%;
+    padding: 1rem;
 }

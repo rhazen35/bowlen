@@ -4,7 +4,13 @@ require_once( "php/functions.php" );
 $lanes = Functions::get_lanes();
 $menus = Functions::get_menus();
 
-var_dump($menus);
+$menu_numbers = array();
+
+foreach( $menus as $menu ):
+    $menu_numbers[] = $menu['menu'];
+endforeach;
+
+$menu_numbers = ( array_unique( $menu_numbers ) );
 
 ?>
 
@@ -71,7 +77,7 @@ var_dump($menus);
             <ARTICLE class="rondehoeken">
                 <H2>welkom op onze site</H2>
                 </ASIDE>
-                <form action="reservations.php" method="post">
+                <form action="php/reservations.php" method="post">
                     <fieldset>
                         <legend>Vul onderstaande gegevens in</legend>
                         <select name="lane">
@@ -83,20 +89,36 @@ var_dump($menus);
                         <br><br>
                         <select name="menu">
                             <option value="">Kies een menu</option>
-                            <?php foreach( $menus as $menu ): ?>
-                                <option value="<?= $menu['menu_id'] ?>"><?= $menu['menu'] ?></option>
+                            <?php foreach( $menu_numbers as $menu_number ): ?>
+                                <option value="<?= $menu_number ?>">
+                                    <?php
+                                        echo $menu_number;
+                                        foreach( $menus as $menu ):
+                                        if( $menu_number === $menu['menu'] ):
+                                            ?>
+                                            <div>
+                                                <div><?= $menu['dish'] ?></div>
+                                            </div>
+                                            <?php
+                                        endif;
+                                    endforeach;
+                                    ?>
+                                </option>
                             <?php endforeach; ?>
                         </select>
                         <br><br>
                         <span>
                 Glow in the dark?
             </span>
+                        <div>
                         Ja <input type="radio" name="glow_in_dark" value="yes">
                         Nee <input type="radio" name="glow_in_dark" value="no">
+                        </div>
                         <br><br>
+                        <div>
                         Datum <input type="date" name="reservation" value="">
                         Tijd <input type="time" name="time" value="">
-
+                        </div>
                         <input type="text" name="name" value="" placeholder="Volledige naam">
                         <input type="text" name="phone" value="" placeholder="Telefoon">
                         <input type="text" name="email" value="" placeholder="Email">

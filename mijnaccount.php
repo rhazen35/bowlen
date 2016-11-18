@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <HTML>
 
@@ -56,32 +58,36 @@
 
         </DIV>
         <!--  begin webpagina -->
-
         <SECTION class="dikkerand">
             <ARTICLE class="rondehoeken">
+                <?php if( !isset( $_SESSION['user'] ) ): ?>
                 <H2>log in om uw account te bekijken</H2>
                 </ASIDE>
                 <P>
-                    <form action="demo_form.asp">
+                    <form action="login.php" method="post">
                         email:
-                        <input type="text" name="email">
+                        <input type="text" name="gebruikersnaam">
                         <br>
                         <br> wachtwoord:
-                        <input type="password" name="psw">
+                        <input type="password" name="wachtwoord">
                         <br>
                         <br>
 
-                        <input type="submit" value="login">
+                        <input type="submit" name="login" value="login">
                     </form>
 
-                    <A href="wachtwoord vergeten">wachtwoord vergeten</A> </P>
+                    <A href="wachtwoord vergeten">wachtwoord vergeten</A>
+                </P>
+                <?php else: ?>
+                    <H2>U bent al ingelogd</H2>
+                    <FORM action="login.php" method="post">
+                        <INPUT type="submit" name="logout" value="Uitloggen" />
+                    </FORM>
+                <?php endif; ?>
                 <DIV class="clearright">
                 </Div>
             </ARTICLE>
-
-
         </SECTION>
-
         <!--  einde webpagina -->
 
         <FOOTER class="dikkerand">

@@ -15,7 +15,7 @@ if( !class_exists( "Functions" ) ):
             return( $dbArray );
         }
 
-        private static function db_connect()
+        public static function db_connect()
         {
 
             $dbArray = self::dbCredentials();
@@ -52,20 +52,63 @@ if( !class_exists( "Functions" ) ):
         public static function get_menus()
         {
             $mysqli = self::db_connect();
-            $sql = "SELECT menu.id, menu.menu FROM menu ORDER BY menu.menu DESC";
+            $sql = "SELECT menu.id, menu.menu, menu.dish, menu.allergic, menu.price FROM menu ORDER BY menu.menu ASC";
             $stmt = $mysqli->prepare( $sql );
             $stmt->execute();
-            $stmt->bind_result($menu_id, $menu);
+            $stmt->bind_result($menu_id, $menu, $dish, $allergic, $price);
 
             $results = array();
             while( $row = $stmt->fetch() ):
-                $results[] = array("menu_id" => $menu_id, "menu" => $menu);
+                $results[] = array(
+                    "menu_id"   => $menu_id,
+                    "menu"      => $menu,
+                    "dish"      => $dish,
+                    "allergic"  => $allergic,
+                    "price"     => $price
+                );
             endwhile;
 
             $stmt->close();
             $mysqli->close();
 
             return( $results );
+        }
+
+        public static function reservation( $params )
+        {
+            $id             = "";
+            $userID         = "";
+            $customer       = "";
+
+            $lane           = ( !empty( $params['lane'] ) ? $params['lane'] : "" );
+            $menu           = ( !empty( $params['menu'] ) ? $params['menu'] : "" );
+            $glow_in_dark   = ( !empty( $params['glow_in_dark'] ) ? $params['glow_in_dark'] : "" );
+            $reservation    = ( !empty( $params['reservation'] ) ? $params['reservation'] : "" );
+            $persons        = ( !empty( $params['persons'] ) ? $params['persons'] : "" );
+            $time           = ( !empty( $params['time'] ) ? $params['time'] : "" );
+
+            $name           = ( !empty( $params['name'] ) ? $params['name'] : "" );
+            $phone          = ( !empty( $params['phone'] ) ? $params['phone'] : "" );
+            $email          = ( !empty( $params['email'] ) ? $params['email'] : "" );
+
+            $created_at     = date("Y-m-d");
+            $updated_at     = "";
+
+            $mysqli = self::db_connect();
+            $sql = "INSERT INTO reservations VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+            $stmt = $mysqli->prepare( $sql );
+            $stmt->bind_param("iisssssssss", $id, $userID, $customer, $lane, $menu, $glow_in_dark, $reservation, $persons, $time, $created_at, $updated_at);
+            $stmt->execute();
+            $last_id = $mysqli->insert_id;
+            $stmt->close();
+
+            $sql = "INSERT INTO CUSTOMERS VALUES(?,?,?,?,?,?,?)";
+            $stmt = $mysqli->prepare( $sql );
+            $stmt->bind_param("isssiss", $id, $name, $email, $phone, $last_id, $created_at, $updated_at);
+            $stmt->execute();
+
+            $stmt->close();
+            $mysqli->close();
         }
     }
 

@@ -34,7 +34,6 @@
                     <A href="reserveren.php">reserveren</A>
                 </LI>
 
-
             </UL>
 
         </DIV>
@@ -77,6 +76,15 @@
         Just bowl it!
     </FOOTER>
 </DIV>
+
+<div class="reservationComplete">
+    <?php
+        if( isset( $_GET['reservationComplete'] ) ):
+            echo 'Bedankt voor uw reservering, er is een bevestigings mail verzonden.';
+        endif;
+    ?>
+</div>
+
 </BODY>
 
 </HTML>

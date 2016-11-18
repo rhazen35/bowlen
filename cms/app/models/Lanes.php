@@ -42,13 +42,11 @@ if( !class_exists( "Lanes" ) ):
 
         public function edit( $data = [] )
         {
-            if( empty( $this->lane_exists( $data['lane'] ) ) ):
-                $this->capsule->table('bowling_lanes')->where('id', $data['lane_id'])->update([
-                    'lane' => $data['lane'],
-                    'available'  => $data['available'],
-                    'glow_in_dark'  => $data['glow_in_dark']
-                ]);
-            endif;
+            $this->capsule->table('bowling_lanes')->where('id', $data['lane_id'])->update([
+                'lane'          => $data['lane'],
+                'available'     => $data['available'],
+                'glow_in_dark'  => $data['glow_in_dark']
+            ]);
         }
 
         public function delete_lane( $data = [] )
