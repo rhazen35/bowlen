@@ -34,6 +34,10 @@
      * Only show menu when logged in
      */
         if( !empty( $_SESSION['login'] ) ):
+            $user_type = $this->get_current_user_type();
+            if( empty( $user_type ) ):
+                $user_type = $this->get_staff_type();
+            endif;
     ?>
         <div class="header-navigation dropdown">
 
@@ -54,12 +58,36 @@
                     endif;
                 ?>
 
-                <a href="<?= BASE_PATH ?>personeel/index">Personeel</a>
-                <a href="<?= BASE_PATH ?>banen/index">Banen</a>
-                <a href="<?= BASE_PATH ?>menu/index">Menu</a>
-                <a href="<?= BASE_PATH ?>reserveringen/index">Reserveringen</a>
-                <a href="<?= BASE_PATH ?>contact/index">Contact</a>
+                <?php
+                    switch( $user_type ):
 
+                    case"1":
+                    case"2":
+                    case"5":
+                        echo'<a href="'.BASE_PATH.'personeel/index">Personeel</a>';
+                        echo'<a href="'.BASE_PATH.'banen/index">Banen</a>';
+                        echo'<a href="'.BASE_PATH.'menu/index">Menu</a>';
+                        echo'<a href="'.BASE_PATH.'reserveringen/index">Reserveringen</a>';
+                        echo'<a href="'.BASE_PATH.'contact/index">Contact</a>';
+                        break;
+                    case"6":
+                        echo'<a href="'.BASE_PATH.'banen/index">Banen</a>';
+                        echo'<a href="'.BASE_PATH.'menu/index">Menu</a>';
+                        echo'<a href="'.BASE_PATH.'contact/index">Contact</a>';
+                        break;
+                    case"7":
+                        echo'<a href="'.BASE_PATH.'menu/index">Menu</a>';
+                        echo'<a href="'.BASE_PATH.'reserveringen/index">Reserveringen</a>';
+                        echo'<a href="'.BASE_PATH.'contact/index">Contact</a>';
+                        break;
+                    case"8":
+                        echo'<a href="'.BASE_PATH.'menu/index">Menu</a>';
+                        echo'<a href="'.BASE_PATH.'reserveringen/index">Reserveringen</a>';
+                        echo'<a href="'.BASE_PATH.'contact/index">Contact</a>';
+                        break;
+
+                    endswitch;
+                ?>
             </div>
         </div>
     <?php endif; ?>

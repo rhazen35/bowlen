@@ -65,7 +65,7 @@ if( !class_exists( "app\\controllers\\Users" ) ):
 
         public function user_types_array()
         {
-            return( ['admin', 'superuser', 'normal', 'guest'] );
+            return( ['admin', 'superuser', 'normal', 'guest', 'manager', 'kitchen', 'reception', 'host'] );
         }
 
         public function convert_user_type_text( $user_type )
@@ -82,6 +82,18 @@ if( !class_exists( "app\\controllers\\Users" ) ):
                     break;
                 case"4":
                     return( "guest" );
+                    break;
+                case"5":
+                    return( "manager" );
+                    break;
+                case"6":
+                    return( "reception" );
+                    break;
+                case"7":
+                    return( "kitchen" );
+                    break;
+                case"8":
+                    return( "host" );
                     break;
                 default:
                     return( "unknown" );
@@ -104,8 +116,20 @@ if( !class_exists( "app\\controllers\\Users" ) ):
                 case"guest":
                     return( 4 );
                     break;
+                case"manager":
+                    return( 5);
+                    break;
+                case"reception":
+                    return( 6 );
+                    break;
+                case"kitchen":
+                    return( 7 );
+                    break;
+                case"host":
+                    return( 8 );
+                    break;
                 default:
-                    return( 5 );
+                    return( 9 );
                     break;
             endswitch;
         }

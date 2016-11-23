@@ -3,6 +3,7 @@
 use app\core\Library as Lib;
 
 $random_pass = Lib::random_password();
+$user_types  = $this->user_types_array();
 
 ?>
 
@@ -24,6 +25,12 @@ $random_pass = Lib::random_password();
             <input type="text" name="insertion" value="" placeholder=" Tussenvoegsel">
             <input type="text" name="last_name" value="" placeholder=" Achternaam">
             <input type="email" name="email" value="" placeholder=" Email">
+            <select name="type">
+                <option value="">Kies een type</option>
+                <?php foreach( $user_types as $user_type ): ?>
+                    <option value="<?= $this->convert_user_type_number( $user_type ) ?>"><?= $user_type ?></option>
+                <?php endforeach; ?>
+            </select>
             <br><br>
             <p>
                 Tijdelijk wachtwoord: <?= $random_pass ?>

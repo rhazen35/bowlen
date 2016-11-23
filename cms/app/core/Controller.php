@@ -57,6 +57,24 @@ if( !class_exists( "Controller" ) ):
             endif;
         }
 
+        protected function get_current_user_type()
+        {
+            if( isset( $_SESSION['login'] ) ):
+                $data = ['user_id' => $_SESSION['login']];
+                $userType = (int) $this->model('User')->get_user_type($data);
+                return($userType);
+            endif;
+        }
+
+        protected function get_staff_type()
+        {
+            if( isset( $_SESSION['login'] ) ):
+                $data = ['user_id' => $_SESSION['login']];
+                $userType = (int) $this->model('User')->get_staff_type($data);
+                return($userType);
+            endif;
+        }
+
         public function redirect( $location = '' )
         {
             header("Location: " . BASE_PATH . $location . "");

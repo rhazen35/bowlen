@@ -17,15 +17,15 @@
                 <input type="hidden" name="userID" value="<?= $user->id ?>">
                 <span class="table-cell"><input id="updateUser" type="email" name="email" value="<?= $user->email ?>"></span>
                 <span class="table-cell">
-                        <select name="type" id="updateUser">
-                            <option value="<?= $user_type ?>"><?= $user_type ?></option>
-                            <?php foreach( $this->user_types_array() as $type ): ?>
-                                <?php if( $user_type !== $type ): ?>
-                                    <option value="<?= $type ?>"><?= $type ?></option>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        </select>
-                    </span>
+                    <select name="type" id="updateUser">
+                        <option value="<?= $user_type ?>"><?= $user_type ?></option>
+                        <?php foreach( $this->user_types_array() as $type ): ?>
+                            <?php if( $user_type !== $type ): ?>
+                                <option value="<?= $type ?>"><?= $type ?></option>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </select>
+                </span>
                 <span class="table-cell"><?= $user->created_at ?></span>
                 <span class="table-cell"><?= $user->updated_at ?></span>
                 <span class="table-cell-delete">

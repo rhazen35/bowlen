@@ -7,6 +7,7 @@
             <span class="table-header">Tussenvoegsel</span>
             <span class="table-header">Achternaam</span>
             <span class="table-header">Email</span>
+            <span class="table-header">Type</span>
             <span class="table-header">Updated at</span>
             <span class="table-header">Delete</span>
         </span>
@@ -17,6 +18,16 @@
                 <span class="table-cell"><input id="updateUser" type="text" name="insertion" value="<?= $staff_member->insertion ?>"></span>
                 <span class="table-cell"><input id="updateUser" type="text" name="last_name" value="<?= $staff_member->last_name ?>"></span>
                 <span class="table-cell"><input id="updateUser" type="email" name="email" value="<?= $staff_member->email ?>"></span>
+                <span class="table-cell">
+                    <select name="type" id="updateUser">
+                        <option value="<?= $staff_member->type ?>"><?= $this->convert_user_type_text( $staff_member->type ) ?></option>
+                        <?php foreach( $this->user_types_array() as $type ): ?>
+                            <?php if( $staff_member->type !== $type ): ?>
+                                <option value="<?= $this->convert_user_type_number( $type ) ?>"><?= $type ?></option>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </select>
+                </span>
                 <span class="table-cell"><?= $staff_member->created_at ?></span>
                 <span class="table-cell-delete">
                     <a id="deleteUser" class="users-delete" data-url="<?= BASE_PATH ?>staff/delete/<?= $staff_member->id ?>" title="Delete this staff member"></a>

@@ -6,7 +6,7 @@ if( !class_exists( "Staff" ) ):
 
     class Staff extends Eloquent
     {
-        protected $fillable = ['first_name', 'insertion', 'last_name', 'email', 'hash', 'created_at', 'updated_at'];
+        protected $fillable = ['first_name', 'insertion', 'last_name', 'email', 'type', 'hash', 'created_at', 'updated_at'];
         protected $capsule;
 
         public function __construct()
@@ -22,6 +22,7 @@ if( !class_exists( "Staff" ) ):
                 'insertion'  => $data['insertion'],
                 'last_name'  => $data['last_name'],
                 'email'      => $data['email'],
+                'type'       => $data['type'],
                 'hash'       => $data['hash']
             ]);
         }
@@ -38,7 +39,8 @@ if( !class_exists( "Staff" ) ):
                     'first_name' => $data['first_name'],
                     'insertion'  => $data['insertion'],
                     'last_name'  => $data['last_name'],
-                    'email'      => $data['email']
+                    'email'      => $data['email'],
+                    'type'       => $data['type']
                 ]);
         }
 

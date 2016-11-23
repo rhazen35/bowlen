@@ -35,7 +35,9 @@
                     <LI>
                         <A href="reserveren.php">reserveren</A>
                     </LI>
-
+                    <LI>
+                        <A href="menu.php">menu</A>
+                    </LI>
 
                 </UL>
 

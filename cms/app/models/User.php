@@ -28,6 +28,26 @@ if( !class_exists( "User" ) ):
             return( false );
         }
 
+        public function get_staff_type( $data = '' )
+        {
+            $capsule = unserialize( CAPSULE );
+            $data    = $capsule->table('staff')->where('id', '=', $data['user_id'])->get();
+
+            if( !empty( $data ) ):
+                foreach( $data as $item ):
+                    if( !empty( $item->type ) ):
+                        return( $item->type );
+                    else:
+                        return( false );
+                    endif;
+                endforeach;
+            else:
+                return( false );
+            endif;
+
+            return( false );
+        }
+
         public function get_users()
         {
             $capsule = unserialize( CAPSULE );
